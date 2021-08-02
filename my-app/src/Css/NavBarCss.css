@@ -1,0 +1,10 @@
+#NavBarEdited {
+  width: 100%;
+}
+#graduation {
+  padding-right: 10px;
+}
+#navLink:hover {
+  font-size: larger;
+  transition: 0.5s;
+}
