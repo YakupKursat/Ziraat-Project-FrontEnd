@@ -10,7 +10,7 @@ function App() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
       > */}
-      <div id="bgImage">
+      <div id="bgImage" className="d-flex align-items-center">
         <div className="container">
           <motion.div
             drag
@@ -34,7 +34,7 @@ function App() {
                   </Card.Text>
                   <Button variant="outline-primary" id="cardAbout">
                     {" "}
-                    <a href="#middle" className="text-decoration-none">
+                    <a href="#about" className="text-decoration-none">
                       Hakkında
                     </a>{" "}
                   </Button>
@@ -43,92 +43,89 @@ function App() {
               </Card>
             </div>
           </motion.div>
-
-          <div className="row mb-4">
-            <div className="col-sm-6">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ rotate: 360, scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              >
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Lorem</h5>
-                    <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Explicabo obcaecati quod eligendi consequatur corporis
-                      deleniti laborum aperiam earum laudantium, neque sed
-                      aliquam ab velit soluta aut dolorem repudiandae a
-                      blanditiis.
-                    </p>
-                  </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row mb-4" id="about">
+          <div className="col-sm-6">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Lorem</h5>
+                  <p className="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Explicabo obcaecati quod eligendi consequatur corporis
+                    deleniti laborum aperiam earum laudantium, neque sed aliquam
+                    ab velit soluta aut dolorem repudiandae a blanditiis.
+                  </p>
                 </div>
-              </motion.div>
-            </div>
-
-            <div className="col-sm-6">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ rotate: 360, scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              >
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Lorem</h5>
-                    <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Explicabo obcaecati quod eligendi consequatur corporis
-                      deleniti laborum aperiam earum laudantium, neque sed
-                      aliquam ab velit soluta aut dolorem repudiandae a
-                      blanditiis.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
-          <div className="row">
-            <div className="col-sm-6">
-              {" "}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ rotate: 360, scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              >
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Lorem</h5>
-                    <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Explicabo obcaecati quod eligendi consequatur corporis
-                      deleniti laborum aperiam earum laudantium, neque sed
-                      aliquam ab velit soluta aut dolorem repudiandae a
-                      blanditiis.
-                    </p>
-                  </div>
+
+          <div className="col-sm-6">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Lorem</h5>
+                  <p className="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Explicabo obcaecati quod eligendi consequatur corporis
+                    deleniti laborum aperiam earum laudantium, neque sed aliquam
+                    ab velit soluta aut dolorem repudiandae a blanditiis.
+                  </p>
                 </div>
-              </motion.div>
-            </div>
-            <div className="col-sm-6">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ rotate: 360, scale: 1 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              >
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Lorem</h5>
-                    <p className="card-text">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Explicabo obcaecati quod eligendi consequatur corporis
-                      deleniti laborum aperiam earum laudantium, neque sed
-                      aliquam ab velit soluta aut dolorem repudiandae a
-                      blanditiis.
-                    </p>
-                  </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-6">
+            {" "}
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Lorem</h5>
+                  <p className="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Explicabo obcaecati quod eligendi consequatur corporis
+                    deleniti laborum aperiam earum laudantium, neque sed aliquam
+                    ab velit soluta aut dolorem repudiandae a blanditiis.
+                  </p>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
+          </div>
+          <div className="col-sm-6">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Lorem</h5>
+                  <p className="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Explicabo obcaecati quod eligendi consequatur corporis
+                    deleniti laborum aperiam earum laudantium, neque sed aliquam
+                    ab velit soluta aut dolorem repudiandae a blanditiis.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

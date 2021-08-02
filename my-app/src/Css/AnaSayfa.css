@@ -54,3 +54,10 @@ body {
 #cardAbout{
   border-radius: 50px;
 }
+
+.card:hover{
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+box-shadow: 5px 5px 15px 5px #000000;
+  transition: 0.5s;
+  transition-timing-function: linear;
+}
