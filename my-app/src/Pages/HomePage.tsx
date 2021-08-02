@@ -10,7 +10,7 @@ function App() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
       > */}
-      <div id="image">
+      <div id="bgImage">
         <div className="container">
           <motion.div
             drag
@@ -43,6 +43,7 @@ function App() {
               </Card>
             </div>
           </motion.div>
+
           <div className="row mb-4">
             <div className="col-sm-6">
               <motion.div
