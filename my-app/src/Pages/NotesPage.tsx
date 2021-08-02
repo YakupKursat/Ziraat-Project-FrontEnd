@@ -2,7 +2,7 @@ import "antd/dist/antd.css";
 import { Form, Input, Button, Select, Cascader, DatePicker } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Css/NotesPageCss.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 function NotesPage() {
@@ -16,16 +16,16 @@ function NotesPage() {
   const [BirthDate, setBirthDate] = useState('');
   const [IsPending, setIsPending] = useState(false);
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
+  const handleSubmit = (e: any) => {
     const blog = { FirstName, LastName, UserName, Email, Residence, StudentId1, Gender, BirthDate };
 
-    setIsPending(true);
+    setIsPending(true)
 
-    fetch('http://localhost:8000/blogs/', {
+    fetch('https://localhost:5001/api/student/Add', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog)
+      body: JSON.stringify(blog),
+
     }).then(() => {
       console.log('new blog added');
       setIsPending(false);
@@ -67,28 +67,6 @@ function NotesPage() {
     },
   ];
 
-  // const formItemLayout = {
-  //   labelCol: {
-  //     xs: { span: 24 },
-  //     sm: { span: 8 },
-  //   },
-  //   wrapperCol: {
-  //     xs: { span: 24 },
-  //     sm: { span: 16 },
-  //   },
-  // };
-  // const tailFormItemLayout = {
-  //   wrapperCol: {
-  //     xs: {
-  //       span: 24,
-  //       offset: 0,
-  //     },
-  //     sm: {
-  //       span: 16,
-  //       offset: 8,
-  //     },
-  //   },
-  // };
   return (
     <AnimatePresence exitBeforeEnter >
       <div className="container my-3 pb-3" >
@@ -109,6 +87,7 @@ function NotesPage() {
               prefix: "90",
             }}
             scrollToFirstError
+            method = "post"
           >
             <div className="row">
               <div className="col-md-6">
@@ -210,7 +189,6 @@ function NotesPage() {
                 >
                   <Input
                   onChange={(e) => setResidence(e.target.value)}
-                    // addonBefore={prefixSelector}
                     style={{ width: "100%" }}
                   />
                 </Form.Item>
@@ -241,7 +219,7 @@ function NotesPage() {
               {!IsPending && <Button type="primary" htmlType="submit" id="register">
                 Submit
               </Button>}
-              {IsPending && <Button type="primary" htmlType="submit" id="register">
+              {IsPending && <Button type="primary" htmlType="submit" id="register" disabled>
                 Submitting...
               </Button>}
             </Form.Item>
