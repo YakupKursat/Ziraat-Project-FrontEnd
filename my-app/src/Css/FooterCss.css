@@ -2,5 +2,5 @@
     height: 100%;
 } 
 h5,h6{
-    color: white;
+    color: white !important;
 }
