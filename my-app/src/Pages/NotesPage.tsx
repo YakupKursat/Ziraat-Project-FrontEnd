@@ -6,31 +6,41 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 function NotesPage() {
-  const [FirstName, setFirstName] = useState('');
-  const [LastName, setLastName] = useState('');
-  const [UserName, setUserName] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Residence, setResidence] = useState('');
-  const [StudentId1, setStudentId1] = useState('');
-  const [Gender, setGender] = useState('');
-  const [BirthDate, setBirthDate] = useState('');
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [UserName, setUserName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Residence, setResidence] = useState("");
+  const [StudentId1, setStudentId1] = useState("");
+  const [Gender, setGender] = useState("");
+  const [BirthDate, setBirthDate] = useState("");
   const [IsPending, setIsPending] = useState(false);
 
-  const handleSubmit = (e: any) => {
-    const blog = { FirstName, LastName, UserName, Email, Residence, StudentId1, Gender, BirthDate };
+  const handleSubmit = () => {
+    const blog = {
+      StudentId1: 5,
+      FirstName: "dsada",
+      LastName: "dasdasd",
+      Password: "dasdasdasda",
+      Email: "asdasdasdasdas",
+      Country: 2,
+      City: 3,
+      UserName: "asdsada",
+      Gender: 2,
+      BirthDate: new Date(),
+    };
 
-    setIsPending(true)
+    setIsPending(true);
 
-    fetch('https://localhost:5001/api/student/Add', {
-      method: 'POST',
+    fetch("https://localhost:5001/api/student/add", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
-
     }).then(() => {
-      console.log('new blog added');
+      console.log("new blog added");
       setIsPending(false);
-    })
-  }
+    });
+  };
 
   const { Option } = Select;
 
@@ -68,8 +78,8 @@ function NotesPage() {
   ];
 
   return (
-    <AnimatePresence exitBeforeEnter >
-      <div className="container my-3 pb-3" >
+    <AnimatePresence exitBeforeEnter>
+      <div className="container my-3 pb-3">
         <motion.div
           exit={{ opacity: 0, y: -50 }}
           initial={{ opacity: 0, y: -50 }}
@@ -87,14 +97,14 @@ function NotesPage() {
               prefix: "90",
             }}
             scrollToFirstError
-            method = "post"
+            method="POST"
           >
             <div className="row">
               <div className="col-md-6">
                 <Form.Item
                   name="FirstName"
                   label="First Name"
-                  tooltip="If you wish you can write your second name either"                 
+                  tooltip="If you wish you can write your second name either"
                   rules={[
                     {
                       required: true,
@@ -103,7 +113,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setFirstName(e.target.value)}/>
+                  <Input onChange={(e) => setFirstName(e.target.value)} />
                 </Form.Item>
               </div>
               <div className="col-md-6">
@@ -118,7 +128,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setLastName(e.target.value)}/>
+                  <Input onChange={(e) => setLastName(e.target.value)} />
                 </Form.Item>
               </div>
             </div>
@@ -136,7 +146,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setUserName(e.target.value)}/>
+                  <Input onChange={(e) => setUserName(e.target.value)} />
                 </Form.Item>
               </div>
               <div className="col-md-6">
@@ -155,12 +165,12 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setEmail(e.target.value)}/>
+                  <Input onChange={(e) => setEmail(e.target.value)} />
                 </Form.Item>
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-6 rounded-circle">
                 <Form.Item
                   name="residence"
                   label="Habitual Residence"
@@ -188,7 +198,7 @@ function NotesPage() {
                   ]}
                 >
                   <Input
-                  onChange={(e) => setResidence(e.target.value)}
+                    onChange={(e) => setResidence(e.target.value)}
                     style={{ width: "100%" }}
                   />
                 </Form.Item>
@@ -211,17 +221,21 @@ function NotesPage() {
               </div>
               <div className="col-md-6">
                 <Form.Item name="date-picker" label="DatePicker" {...config}>
-                  <DatePicker/>
+                  <DatePicker />
                 </Form.Item>
               </div>
             </div>
             <Form.Item>
-              {!IsPending && <Button type="primary" htmlType="submit" id="register">
-                Submit
-              </Button>}
-              {IsPending && <Button type="primary" htmlType="submit" id="register" disabled>
-                Submitting...
-              </Button>}
+              {!IsPending && (
+                <Button type="primary" htmlType="submit" id="register">
+                  Submit
+                </Button>
+              )}
+              {IsPending && (
+                <Button type="primary" htmlType="submit" id="register" disabled>
+                  Submitting...
+                </Button>
+              )}
             </Form.Item>
           </Form>
         </motion.div>
