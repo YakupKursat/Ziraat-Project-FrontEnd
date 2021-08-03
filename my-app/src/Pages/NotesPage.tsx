@@ -1,34 +1,47 @@
 import "antd/dist/antd.css";
-import { Form, Input, Button, Select, Cascader, DatePicker } from "antd";
+import {
+  AutoComplete,
+  Form,
+  Input,
+  Button,
+  Select,
+  Cascader,
+  DatePicker,
+} from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Css/NotesPageCss.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { PostType } from "../model";
 
-function NotesPage() {
+function NotesPage(props: any) {
+  const [form] = Form.useForm();
+  const [StudentId1, setStudentId1] = useState("");
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
-  const [UserName, setUserName] = useState("");
+  const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState("");
-  const [Residence, setResidence] = useState("");
-  const [StudentId1, setStudentId1] = useState("");
+  const [Country, setResidence] = useState("");
+  const [City, setCity] = useState("");
+  const [UserName, setUserName] = useState("");
   const [Gender, setGender] = useState("");
-  const [BirthDate, setBirthDate] = useState("");
   const [IsPending, setIsPending] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (values: any) => {
     const blog = {
-      StudentId1: 5,
-      FirstName: "dsada",
-      LastName: "dasdasd",
-      Password: "dasdasdasda",
-      Email: "asdasdasdasdas",
-      Country: 2,
-      City: 3,
-      UserName: "asdsada",
-      Gender: 2,
+      StudentId1,
+      FirstName,
+      LastName,
+      Password,
+      Email,
+      Country,
+      City,
+      UserName,
+      Gender,
       BirthDate: new Date(),
     };
+
+    console.log("Hello", form.getFieldsValue());
 
     setIsPending(true);
 
@@ -37,7 +50,7 @@ function NotesPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
     }).then(() => {
-      console.log("new blog added");
+      console.log(values);
       setIsPending(false);
     });
   };
@@ -54,6 +67,22 @@ function NotesPage() {
     ],
   };
 
+  const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
+
+  const onEmailChange = (value: any) => {
+    if (!value) {
+      setAutoCompleteResult(['example@hotmail.com', 'example@gmail.com', 'example@outlook.com'].map(domain => `${value}${domain}`));
+    }
+     else {
+      setAutoCompleteResult(['@hotmail.com', '@gmail.com', '@outlook.com'].map(domain => `${value}${domain}`));
+    }
+  };
+
+  const EmailOptions = autoCompleteResult.map(EmailOptions => ({
+    label: EmailOptions,
+    value: EmailOptions,
+  }));
+
   const residences = [
     {
       value: "90",
@@ -62,6 +91,10 @@ function NotesPage() {
         {
           value: "06",
           label: "Ankara",
+        },
+        {
+          value: "34",
+          label: "İstanbul",
         },
       ],
     },
@@ -86,6 +119,7 @@ function NotesPage() {
           animate={{ opacity: 1, y: 0 }}
         >
           <Form
+            form={form}
             onFinish={handleSubmit}
             layout="vertical"
             // {...formItemLayout}
@@ -113,7 +147,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setFirstName(e.target.value)} />
+                  <Input/>
                 </Form.Item>
               </div>
               <div className="col-md-6">
@@ -128,7 +162,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setLastName(e.target.value)} />
+                  <Input/>
                 </Form.Item>
               </div>
             </div>
@@ -146,7 +180,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setUserName(e.target.value)} />
+                  <Input/>
                 </Form.Item>
               </div>
               <div className="col-md-6">
@@ -165,7 +199,11 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input onChange={(e) => setEmail(e.target.value)} />
+                  <AutoComplete options={EmailOptions} 
+                  onChange={onEmailChange} 
+                  placeholder="example@hotmail.com"
+                  />
+                  {/* <Input onChange={(e) => setEmail(e.target.value)} /> */}
                 </Form.Item>
               </div>
             </div>
@@ -182,7 +220,8 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Cascader options={residences} />
+                  <Cascader options={residences} 
+                  />
                 </Form.Item>
               </div>
               <div className="col-md-6">
@@ -198,7 +237,7 @@ function NotesPage() {
                   ]}
                 >
                   <Input
-                    onChange={(e) => setResidence(e.target.value)}
+                    onChange={onEmailChange}
                     style={{ width: "100%" }}
                   />
                 </Form.Item>
@@ -235,7 +274,7 @@ function NotesPage() {
                 <Button type="primary" htmlType="submit" id="register" disabled>
                   Submitting...
                 </Button>
-              )}
+              )}      
             </Form.Item>
           </Form>
         </motion.div>
@@ -245,3 +284,7 @@ function NotesPage() {
 }
 
 export default NotesPage;
+function setCountry(arg0: any): void {
+  throw new Error("Function not implemented.");
+}
+
