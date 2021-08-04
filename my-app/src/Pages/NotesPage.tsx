@@ -20,19 +20,19 @@ function NotesPage() {
 
   const handleSubmit = () => {
     
-    const veri =form.getFieldsValue();
+    const data =form.getFieldsValue();
 
     const blog :PostType= {
       
-      studentId1: veri.StudentId1,
-      firstName: veri.FirstName,
-      lastName: veri.LastName,
-      passWord: "no",
-      email: veri.email,
-      country: veri.residence[0],
-      city: veri.residence[1],
-      userName: veri.UserName,
-      gender: veri.Gender,
+      studentId1: data.StudentId1,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      passWord: "No Password",
+      email: data.email,
+      country: data.residence[0],
+      city: data.residence[1],
+      userName: data.userName,
+      gender: data.Gender,
       birthDate: new Date()
     };
 
@@ -89,7 +89,7 @@ function NotesPage() {
         },
         {
           value: 34,
-          label: "İstanbul",
+          label: "Istanbul",
         },
       ],
     },
@@ -117,10 +117,7 @@ function NotesPage() {
             form={form}
             onFinish={handleSubmit}
             layout="vertical"
-            // {...formItemLayout}
-            // form={form}
             name="register"
-            // onFinish={onFinish}
             initialValues={{
               residence: ["Country", "City"],
               prefix: "90",
@@ -131,7 +128,7 @@ function NotesPage() {
             <div className="row">
               <div className="col-md-6">
                 <Form.Item
-                  name="FirstName"
+                  name="firstName"
                   label="First Name"
                   tooltip="If you wish you can write your second name either"
                   rules={[
@@ -147,7 +144,7 @@ function NotesPage() {
               </div>
               <div className="col-md-6">
                 <Form.Item
-                  name="LastName"
+                  name="lastName"
                   label="Last Name"
                   rules={[
                     {
@@ -164,7 +161,7 @@ function NotesPage() {
             <div className="row">
               <div className="col-md-6">
                 <Form.Item
-                  name="UserName"
+                  name="userName"
                   label="Username"
                   tooltip="This will be your profile name."
                   rules={[
@@ -220,7 +217,7 @@ function NotesPage() {
               </div>
               <div className="col-md-6">
                 <Form.Item
-                  name="StudentId1"
+                  name="studentId1"
                   label="Student Number"
                   tooltip="What your school number is?"
                   rules={[
@@ -230,9 +227,7 @@ function NotesPage() {
                     },
                   ]}
                 >
-                  <Input
-                    // style={{ width: "100%" }}
-                  />
+                  <Input/>
                 </Form.Item>
               </div>
             </div>
@@ -252,7 +247,7 @@ function NotesPage() {
                 </Form.Item>
               </div>
               <div className="col-md-6">
-                <Form.Item name="date-picker" label="DatePicker" {...config}>
+                <Form.Item name="birthDate" label="DatePicker" {...config}>
                   <DatePicker />
                 </Form.Item>
               </div>
