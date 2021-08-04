@@ -1,6 +1,6 @@
  html,body{
     height: 100%;
 } 
-h5,h6{
-    color: white !important;
+#footer h5,h6{
+    color: white !important; 
 }

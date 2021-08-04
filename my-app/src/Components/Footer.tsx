@@ -6,7 +6,7 @@ const Footer = (): JSX.Element => (
     className="footer bg-dark pt-4 text-light navbar-expand-sm mt-4"
     id="fotter"
   >
-    <div className="container-fluid text-center text-md-left">
+    <div className="container-fluid text-center text-md-left" id="footer">
       <h5 className="text-uppercase">İletİşİm</h5>
       <div className="row">
         <div className="col-md-4">
@@ -40,7 +40,6 @@ const Footer = (): JSX.Element => (
       </div>
       <hr className="clearfix w-100 d-md-none pb-0" />
     </div>
-    {/* <hr className="mb-0"></hr> */}
     <div className="footer-copyright text-center py-3">
       Sayfanın tüm telif hakları saklıdır.
     </div>

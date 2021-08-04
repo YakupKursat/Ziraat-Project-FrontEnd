@@ -25,7 +25,7 @@ function App() {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
           >
             <div className="d-flex justify-content-center">
-              <Card className="col-md-6 text-center my-5 shadow">
+              <Card className="col-md-6 text-center my-5">
                 <Card.Body>
                   <Card.Title>Notlarına ulaşmanın en kolay yolu!</Card.Title>
                   <Card.Text>
@@ -39,7 +39,7 @@ function App() {
                     </a>{" "}
                   </Button>
                 </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                <Card.Footer className="text-muted">Hoşgeldiniz!</Card.Footer>
               </Card>
             </div>
           </motion.div>
@@ -53,7 +53,7 @@ function App() {
               animate={{ rotate: 360, scale: 1 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
             >
-              <div className="card">
+              <div className="card mb-4">
                 <div className="card-body">
                   <h5 className="card-title">Lorem</h5>
                   <p className="card-text">
@@ -95,7 +95,7 @@ function App() {
               animate={{ rotate: 360, scale: 1 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
             >
-              <div className="card">
+              <div className="card mb-4">
                 <div className="card-body">
                   <h5 className="card-title">Lorem</h5>
                   <p className="card-text">

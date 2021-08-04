@@ -10,47 +10,42 @@ import {
 } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Css/NotesPageCss.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PostType } from "../model";
 
-function NotesPage(props: any) {
+function NotesPage() {
   const [form] = Form.useForm();
-  const [StudentId1, setStudentId1] = useState("");
-  const [FirstName, setFirstName] = useState("");
-  const [LastName, setLastName] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Country, setResidence] = useState("");
-  const [City, setCity] = useState("");
-  const [UserName, setUserName] = useState("");
-  const [Gender, setGender] = useState("");
   const [IsPending, setIsPending] = useState(false);
 
-  const handleSubmit = (values: any) => {
-    const blog = {
-      StudentId1,
-      FirstName,
-      LastName,
-      Password,
-      Email,
-      Country,
-      City,
-      UserName,
-      Gender,
-      BirthDate: new Date(),
+  const handleSubmit = () => {
+    
+    const veri =form.getFieldsValue();
+
+    const blog :PostType= {
+      
+      studentId1: veri.StudentId1,
+      firstName: veri.FirstName,
+      lastName: veri.LastName,
+      passWord: "no",
+      email: veri.email,
+      country: veri.residence[0],
+      city: veri.residence[1],
+      userName: veri.UserName,
+      gender: veri.Gender,
+      birthDate: new Date()
     };
+
 
     console.log("Hello", form.getFieldsValue());
 
     setIsPending(true);
 
-    fetch("https://localhost:5001/api/student/add", {
+    fetch("https://localhost:5001/api/student/Add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
     }).then(() => {
-      console.log(values);
       setIsPending(false);
     });
   };
@@ -83,27 +78,27 @@ function NotesPage(props: any) {
     value: EmailOptions,
   }));
 
-  const residences = [
+   const residences = [   
     {
-      value: "90",
+      value: 90,
       label: "Turkey",
       children: [
         {
-          value: "06",
+          value: 6,
           label: "Ankara",
         },
         {
-          value: "34",
+          value: 34,
           label: "İstanbul",
         },
       ],
     },
     {
-      value: "44",
+      value: 44,
       label: "England",
       children: [
         {
-          value: "14",
+          value: 14,
           label: "London",
         },
       ],
@@ -203,7 +198,6 @@ function NotesPage(props: any) {
                   onChange={onEmailChange} 
                   placeholder="example@hotmail.com"
                   />
-                  {/* <Input onChange={(e) => setEmail(e.target.value)} /> */}
                 </Form.Item>
               </div>
             </div>
@@ -237,8 +231,7 @@ function NotesPage(props: any) {
                   ]}
                 >
                   <Input
-                    onChange={onEmailChange}
-                    style={{ width: "100%" }}
+                    // style={{ width: "100%" }}
                   />
                 </Form.Item>
               </div>
@@ -284,7 +277,3 @@ function NotesPage(props: any) {
 }
 
 export default NotesPage;
-function setCountry(arg0: any): void {
-  throw new Error("Function not implemented.");
-}
-
