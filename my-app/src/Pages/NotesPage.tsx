@@ -20,11 +20,11 @@ function NotesPage() {
 
   const handleSubmit = () => {
     
-    const data =form.getFieldsValue();
+    const data = form.getFieldsValue();
 
     const blog :PostType= {
       
-      studentId1: data.StudentId1,
+      studentId1: Number(data.studentId1),
       firstName: data.firstName,
       lastName: data.lastName,
       passWord: "No Password",
@@ -32,11 +32,12 @@ function NotesPage() {
       country: data.residence[0],
       city: data.residence[1],
       userName: data.userName,
-      gender: data.Gender,
+      gender: Number(data.gender),
       birthDate: new Date()
     };
 
-
+    console.log("ömer")
+    console.log("asdasds", blog);
     console.log("Hello", form.getFieldsValue());
 
     setIsPending(true);
@@ -240,9 +241,9 @@ function NotesPage() {
                   rules={[{ required: true, message: "Please select gender!" }]}
                 >
                   <Select placeholder="select your gender">
-                    <Option value="1">Male</Option>
-                    <Option value="2">Female</Option>
-                    <Option value="3">Other</Option>
+                    <Option value= {1}>Male</Option>
+                    <Option value= {2}>Female</Option>
+                    <Option value= {3}>Other</Option>
                   </Select>
                 </Form.Item>
               </div>

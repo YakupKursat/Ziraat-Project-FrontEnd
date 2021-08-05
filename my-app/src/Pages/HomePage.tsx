@@ -25,7 +25,7 @@ function App() {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
           >
             <div className="d-flex justify-content-center">
-              <Card className="col-md-6 text-center my-5">
+              <Card className=" col-md-6 text-center">
                 <Card.Body>
                   <Card.Title>Notlarına ulaşmanın en kolay yolu!</Card.Title>
                   <Card.Text>
