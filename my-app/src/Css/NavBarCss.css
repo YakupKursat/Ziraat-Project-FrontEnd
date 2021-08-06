@@ -4,11 +4,15 @@
 #graduation {
   padding-right: 10px;
 }
-#navLink:hover {
+#navLinkActive:hover {
   font-size: larger;
   transition: 0.5s;
   color: white;
 }
-#navLink.active {
+#navLinkActive.active {
   font-size: larger;
+  color: white;
+}
+#navLinkDisable{
+  font-size: medium;
 }
